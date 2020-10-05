@@ -1,0 +1,54 @@
+﻿@model IEnumerable<Sina_CSC_Project.Models.CountryDetailViewModel>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>لیست کشورها</h1>
+<br />
+<br />
+<p>
+    <a asp-action="Create" class="btn btn-success"><i class="fa fa-plus" aria-hidden="true"></i>ایجاد کشور جدید</a>
+</p>
+<table id="TblData" class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.CountryId)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.CountryName)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.CountryId)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.CountryName)
+                </td>
+                <td>
+                    <a asp-action="Edit" asp-route-id="@item.CountryId" class="btn btn-warning"><i class="fa fa-pencil" aria-hidden="true"></i></a>
+                    <a asp-action="Details" asp-route-id="@item.CountryId" class="btn btn-info"><i class="fa fa-info" aria-hidden="true"></i></a>
+                    <a asp-action="Delete" asp-route-id="@item.CountryId" class="btn btn-danger" onclick="return confirm('آیا برای حذف اطلاعات مطمئن هستید؟')"><i class="fa fa-trash-o" aria-hidden="true"></i></a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+@section Scripts
+{
+    <script>
+
+        $(document).ready(function () {
+            $('#TblData').DataTable();
+        });
+
+    </script>
+}

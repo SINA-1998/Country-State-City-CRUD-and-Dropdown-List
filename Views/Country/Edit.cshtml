@@ -1,0 +1,39 @@
+﻿@model Sina_CSC_Project.Models.CountryDetailViewModel
+
+@{
+    ViewData["Title"] = "Edit";
+}
+
+<h1>ویرایش</h1>
+<br />
+<br />
+<h4>ویرایش کشورها</h4>
+<hr />
+<div class="row">
+    <div class="col-md-8">
+        <form asp-action="Edit">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="CountryId" class="control-label"></label>
+                <input asp-for="CountryId" class="form-control" />
+                <span asp-validation-for="CountryId" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="CountryName" class="control-label"></label>
+                <input asp-for="CountryName" class="form-control" />
+                <span asp-validation-for="CountryName" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="ذخیره" class="btn btn-success btn-block" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div class="col-md-8">
+    <a asp-action="Index" class="btn btn-secondary btn-block">برگشت به لیست</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

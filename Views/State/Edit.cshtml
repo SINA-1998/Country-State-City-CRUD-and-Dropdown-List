@@ -1,0 +1,50 @@
+﻿@model Sina_CSC_Project.Models.StateDetailViewModel
+
+@{
+    ViewData["Title"] = "Edit";
+}
+
+<h1>ویرایش</h1>
+<br />
+<br />
+<h4>ویرایش استان‌ها</h4>
+<br />
+<hr />
+<div class="row">
+    <div class="col-md-8">
+        <form asp-action="Edit">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="StateId" class="control-label"></label>
+                <input asp-for="StateId" class="form-control" />
+                <span asp-validation-for="StateId" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="StateName" class="control-label"></label>
+                <input asp-for="StateName" class="form-control" />
+                <span asp-validation-for="StateName" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Country.CountryId" class="control-label"></label>
+                <input asp-for="Country.CountryId" class="form-control" />
+                <span asp-validation-for="Country.CountryId" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Country.CountryName" class="control-label"></label>
+                <input asp-for="Country.CountryName" class="form-control" />
+                <span asp-validation-for="Country.CountryName" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="ذخیره" class="btn btn-success btn-block" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div class="col-md-8">
+    <a asp-action="Index" class="btn btn-secondary btn-block">برگشت به لیست</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

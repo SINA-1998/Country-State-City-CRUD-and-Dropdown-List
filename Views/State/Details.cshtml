@@ -1,0 +1,42 @@
+﻿@model Sina_CSC_Project.Models.StateDetailViewModel
+
+@{
+    ViewData["Title"] = "Details";
+}
+
+<h1>جزئیات</h1>
+
+<div>
+    <h4>جزئیات استان‌ها</h4>
+    <hr />
+    <dl class="row">
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.StateId)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.StateId)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.StateName)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.StateName)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.CountryId)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Country.CountryId)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.CountryName)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Country.CountryName)
+        </dd>
+    </dl>
+</div>
+<div class="col-sm-2">
+    <a asp-action="Edit" asp-route-id="@Model.StateId" class="btn btn-info btn-block">ویرایش</a>
+    <a asp-action="Index" class="btn btn-secondary btn-block">برگشت به لیست</a>
+</div>
